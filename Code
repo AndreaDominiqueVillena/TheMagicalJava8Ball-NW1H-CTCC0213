@@ -1,0 +1,97 @@
+import java.util.Scanner;
+import java.util.Random;
+public class Main {
+    public static void main(String[] args) {
+        
+        // Declaring scanner
+        Scanner scanner = new Scanner(System.in);
+        
+        // Declaring random
+        Random random = new Random();
+        
+        // Declaring loop for repeating the question
+        Boolean loop = true;
+        
+        // Initializing all of the possible answers (35)
+        final String[] allanswers = {
+            // List of 14 possible positive answers
+            "The Glass is Half Full.",
+            "The stars have aligned.",
+            "YES! YES! YES!!!",
+            "Provided no one notices, yes.",
+            "Just do it!",
+            "You should act right now!",
+            "Yes!",
+            "Yeah, now leave me alone.",
+            "Despite your struggles, you will find success!",
+            "My sources say mhm…",
+            "If you believe really hard, yes",
+            "Who am I to get in the way of a good idea?",
+            "A definite maybe, possibly yes.",
+            "Yeah, why not?",
+                
+            // List of 14 possible negative answers
+            "The Glass is Half Empty.",
+            "Best to have a backup plan.",
+            "NO! NO! NO!!!",
+            "I'm not even going to answer this one.",
+            " Yeah, if you want a tragedy on your hands.",
+            "Play stupid games, win stupid prizes.",
+            "I won't tell if you don’t…",
+            "It wouldn’t be the right thing to do, but sure.",
+            "Alas. Just don’t.",
+            "No!",
+            "You could say it may work. I would not recommend it, though.",
+            "The Survey Says: Bzzzzzzzzzzt!",
+            "I recommend you stop and don’t ask that again.",
+            "HA- Just No.",
+                
+            // List of 7 possible neutral answers
+            "You should ask a real person on this.",
+            "Sorry. No one is here to answer your question. Leave a message after the tone <<BEEP>>",
+            "Ask me again when I have a good mood.",
+            "Yes! I mean no! Wait um… try again and ignore all of this.",
+            "Java 8-Ball is busy, please try again later.",
+            "Telling you now would spoil all the fun",
+            "Your guess is as good as mine"
+        };
+        
+        // Introduction of the program
+        System.out.println (" __________________________________________________________________________________________________________\n" +
+                            "  I am the Magical Java 8-Ball, here to give predictions and wonderful answers to your uncertain questions \n" +
+                            " __________________________________________________________________________________________________________");
+                            
+        // Starting the loop
+        while (loop) {
+            System.out.print ("\n" + "  Type in your question you like to ask : ");
+            String question = scanner.nextLine();
+            
+            // Check if the user input is empty
+            if (question.trim().isEmpty()) {
+                System.out.println("  Magical Java 8-Ball : Beep boop, you sent nothing. Try typing!");
+                continue; 
+            }
+                
+            // Declaring the random number generator  
+            int index = random.nextInt(allanswers.length);
+            String selectedanswer = allanswers[index]; 
+                
+            // Printing the random answer
+            System.out.println ("\n  Shake-shake, Boom!\n\n" +
+                                "  Magic Java 8 Ball : " + selectedanswer + "\n\n" +
+                                " ----------------------------------------------------------------------------------------------------------");
+
+            // Asking the user if they want to repeat    
+            System.out.print("  Would you like to ask again? (Type No to Terminate) : ");
+            String ask = scanner.nextLine();
+            System.out.println (" ----------------------------------------------------------------------------------------------------------");    
+                
+            // Ending the loop if the user types no  
+            loop = !ask.equalsIgnoreCase("no");
+        }
+        
+        // Terminating the program
+        System.out.println ("\n  Magic Java 8 Ball : I hope my amazing and life changing responses were useful to you, Goodbye!\n" + " __________________________________________________________________________________________________________");
+        scanner.close();
+    }
+}
